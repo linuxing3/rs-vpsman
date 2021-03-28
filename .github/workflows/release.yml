@@ -19,7 +19,7 @@ jobs:
             asset_name: rs-vpsman-macos-amd64
           - os: windows-latest
             artifact_name: rs-vpsman
-            asset_name: leis-municipais-macos-amd64
+            asset_name: rs-vpsman-windows-amd64
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
