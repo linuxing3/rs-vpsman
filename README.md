@@ -1,5 +1,7 @@
 # Vpsman
 
+[![Rust](https://github.com/linuxing3/rs-vpsman/actions/workflows/rust.yml/badge.svg)](https://github.com/linuxing3/rs-vpsman/actions/workflows/rust.yml)
+
 一个简单的示例项目,演示如何搭建一个命令行程序,可以调用用户界面程序.
 
 ## 技术栈配置
