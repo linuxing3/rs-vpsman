@@ -1,27 +1,33 @@
 use iced::{Settings, Application};
-use rs-vpsman::gui::Counter;
 use clap::{App, load_yaml};
+
+// extern crate vpsman;
+use vpsman::todos::*;
 
 fn main() {
     let yaml = load_yaml!("config.yml");
-    let opts = App::from(yaml).get_matches();
+    let m = App::from(yaml).get_matches();
 
-    println!("Value for config: {}", opts.config);
-    println!("Using input file: {}", opts.input);
-
-    match opts.verbose {
-        0 => println!("No verbose info"),
-        1 => println!("Some verbose info"),
-        2 => println!("Tons of verbose info"),
-        3 | _ => println!("Don't be crazy"),
+    if let Some(mode) = m.value_of("mode") {
+        match mode {
+            "vi" => println!("You are using vi"),
+            "emacs" => println!("You are using emacs..."),
+            _ => unreachable!(),
+        }
+    } else {
+        println!("--mode <MODE> wasn't used...");
     }
 
-    match opts.gui {
-        _ => gui(),
+    match m.subcommand_name() {
+        Some("gui") => {
+            gui().expect("");
+            println!("'myapp add' was used")
+        },
+        None => println!("No subcommand was used"),
+        _ => println!("Some other subcommand was used"),
     }
 }
 
 pub fn gui() -> iced::Result {
-    <Counter as Application>::run(Settings::default())
+    <todos::Todos as Application>::run(Settings::default())
 }
-

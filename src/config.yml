@@ -1,22 +1,17 @@
-name: rs-vpsman
+name: vpsman
 version: "1.0"
 author: linuxing3<linuxing3@gmail.com>
 about: Manage my vps
+settings:
+    - ArgRequiredElseHelp
+
 args:
-    - config:
-        short: c
-        long: config
-        value_name: FILE
-        about: Sets a custom config file
+    - mode:
+        long: mode
+        help: shows an option with specific values
+        possible_values: [ vi, emacs ]
         takes_value: true
-    - INPUT:
-        about: Sets the input file to use
-        required: true
-        index: 1
-    - verbose:
-        short: v
-        multiple: true
-        about: Sets the level of verbosity
+
 subcommands:
     - gui:
         about: open gui
