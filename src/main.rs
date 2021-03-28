@@ -1,7 +1,6 @@
 use iced::{Settings, Application};
 use clap::{App, load_yaml};
 
-// extern crate vpsman;
 use vpsman::todos::*;
 
 fn main() {
@@ -21,10 +20,10 @@ fn main() {
     match m.subcommand_name() {
         Some("gui") => {
             gui().expect("");
-            println!("'myapp add' was used")
+            println!("'gui' was used")
         },
-        None => println!("No subcommand was used"),
-        _ => println!("Some other subcommand was used"),
+        None => println!("No subcommand gui was used"),
+        _ => println!("No subcommand gui was used"),
     }
 }
 
